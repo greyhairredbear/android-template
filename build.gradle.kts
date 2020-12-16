@@ -18,7 +18,8 @@ buildscript {
     }
 }
 
-apply(from = "config/git-hooks/gitHooks.gradle.kts")
+apply("config/git-hooks/gitHooks.gradle.kts")
+apply("config/git-hooks/preCommit.gradle.kts")
 
 allprojects {
     group = PUBLISHING_GROUP
@@ -49,4 +50,11 @@ subprojects {
 
 tasks.register("clean").configure {
     delete("build")
+}
+
+tasks.withType<io.gitlab.arturbosch.detekt.Detekt>() {
+    include("**/*.kt")
+    include("**/*.kts")
+    exclude("**/resources/**")
+    exclude("**/build/**")
 }

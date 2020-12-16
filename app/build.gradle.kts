@@ -4,6 +4,11 @@ plugins {
     id(Plugins.KOTLIN_ANDROID_EXTENSIONS)
 }
 
+val installGitHooks by rootProject.tasks.existing
+val preBuild by tasks.existing {
+    dependsOn(installGitHooks)
+}
+
 android {
     compileSdkVersion(Sdk.COMPILE_SDK_VERSION)
 
