@@ -7,17 +7,17 @@ import Versions.ARROW_VERSION
 
 object Versions {
     const val BUILD_TOOLS_VERSION = "3.3.1"
-    const val KOTLIN_COROUTINES_VERSION = "1.4.0-M1"
+    const val KOTLIN_COROUTINES_VERSION = "1.4.3"
 
-    const val ARROW_VERSION = "0.10.5"
+    const val ARROW_VERSION = "0.13.1"
 
-    const val KOTEST_VERSION = "4.3.0"
-    const val MOCKK_VERSION = "1.10.0"
+    const val KOTEST_VERSION = "4.4.3"
+    const val MOCKK_VERSION = "1.11.0"
 
-    const val APP_COMPAT_VERSION = "1.1.0"
-    const val CONSTRAINT_LAYOUT_VERSION = "1.1.0"
-    const val CORE_KTX_VERSION = "1.2.0"
-    const val ANDROID_MATERIAL_VERSION = "1.2.1"
+    const val APP_COMPAT_VERSION = "1.2.0"
+    const val CONSTRAINT_LAYOUT_VERSION = "2.0.4"
+    const val CORE_KTX_VERSION = "1.3.2"
+    const val ANDROID_MATERIAL_VERSION = "1.3.0"
 
     const val ANDROIDX_TEST_EXT_VERSION = "1.1.2"
     const val ANDROIDX_TEST_VERSION = "1.3.0"
@@ -26,8 +26,8 @@ object Versions {
 
 object BuildPluginsVersions {
     const val ANDROID_GRADLE_PLUGIN = "4.1.1"
-    const val DETEKT = "1.14.2"
-    const val KOTLIN = "1.4.10"
+    const val DETEKT = "1.16.0"
+    const val KOTLIN = "1.4.32"
 }
 
 object Plugins {
@@ -44,8 +44,8 @@ object Plugins {
 }
 
 object Sdk {
-    const val COMPILE_SDK_VERSION = 29
-    const val TARGET_SDK_VERSION = 29
+    const val COMPILE_SDK_VERSION = 30
+    const val TARGET_SDK_VERSION = 30
     const val MIN_SDK_VERSION = 23
 }
 
