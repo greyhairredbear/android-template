@@ -1,7 +1,6 @@
 plugins {
     id(Plugins.ANDROID_APPLICATION)
     id(Plugins.KOTLIN_ANDROID)
-    id(Plugins.KOTLIN_ANDROID_EXTENSIONS)
 }
 
 val installGitHooks by rootProject.tasks.existing
@@ -10,11 +9,11 @@ val preBuild by tasks.existing {
 }
 
 android {
-    compileSdkVersion(Sdk.COMPILE_SDK_VERSION)
+    compileSdk = Sdk.COMPILE_SDK_VERSION
 
     defaultConfig {
-        minSdkVersion(Sdk.MIN_SDK_VERSION)
-        targetSdkVersion(Sdk.TARGET_SDK_VERSION)
+        minSdk = Sdk.MIN_SDK_VERSION
+        targetSdk = Sdk.TARGET_SDK_VERSION
 
         applicationId = AppInfo.APP_ID
         versionCode = AppInfo.APP_VERSION_CODE
@@ -22,8 +21,8 @@ android {
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
     }
     compileOptions {
-        sourceCompatibility = JavaVersion.VERSION_1_8
-        targetCompatibility = JavaVersion.VERSION_1_8
+        sourceCompatibility = JavaVersion.VERSION_11
+        targetCompatibility = JavaVersion.VERSION_11
     }
     buildTypes {
         getByName("release") {
@@ -35,21 +34,37 @@ android {
         }
     }
 
-    lintOptions {
+    buildFeatures {
+        compose = true
+    }
+
+    composeOptions {
+        kotlinCompilerVersion = BuildPluginsVersions.KOTLIN
+        kotlinCompilerExtensionVersion = Versions.COMPOSE_VERSION
+    }
+
+    lint {
         isWarningsAsErrors = true
         isAbortOnError = true
     }
 }
 
 dependencies {
-//    testImplementation 'junit:junit:4.+'
-
     implementation(Core.STD_LIB)
     implementation(Core.KOTLINX_COROUTINES)
 
+    implementation(Server.KTOR_CLIENT_CORE)
+    implementation(Server.KTOR_CLIENT_ANDROID)
+    implementation(Server.KTOR_CLIENT_SERIALIATION)
+
+    implementation(Compose.COMPOSE_UI)
+    implementation(Compose.COMPOSE_MATERIAL)
+    implementation(Compose.COMPOSE_UI_TOOLING_PREVIEW)
+    implementation(Compose.COMPOSE_FOUNDATION)
+
     implementation(SupportLibs.ANDROIDX_APPCOMPAT)
-    implementation(SupportLibs.ANDROIDX_CONSTRAINT_LAYOUT)
     implementation(SupportLibs.ANDROIDX_CORE_KTX)
+    implementation(SupportLibs.ANDROIDX_ACTIVITY)
     implementation (GoogleLibs.ANDROID_MATERIAL)
 
     testImplementation(Testing.KOTEST_RUNNER)
@@ -63,4 +78,6 @@ dependencies {
     androidTestImplementation(AndroidTesting.ANDROIDX_TEST_EXT_JUNIT)
     androidTestImplementation(AndroidTesting.ANDROIDX_TEST_RULES)
     androidTestImplementation(AndroidTesting.ESPRESSO_CORE)
+
+    debugImplementation(Compose.COMPOSE_UI_TOOLING)
 }
