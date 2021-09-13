@@ -34,7 +34,7 @@ subprojects {
     }
 
     detekt {
-        failFast = false
+        allRules = false
         buildUponDefaultConfig = true
         config = rootProject.files("config/detekt/detekt.yml")
 

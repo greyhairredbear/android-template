@@ -34,7 +34,7 @@ object Versions {
 object BuildPluginsVersions {
     const val ANDROID_GRADLE_PLUGIN = "7.0.2"
     const val DETEKT = "1.18.1"
-    const val KOTLIN = "1.5.30"
+    const val KOTLIN = "1.5.21"
 }
 
 object Plugins {
